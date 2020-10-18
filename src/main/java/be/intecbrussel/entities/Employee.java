@@ -6,17 +6,32 @@ import javax.persistence.*;
 @Table (name = "employees")
 public class Employee {
 
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int employeeNumber;
     private String lastName;
     private String firstName;
     private String extension;
     private String email;
-    @ManyToOne
+    //@ManyToOne
     private String officeCode;
-    @ManyToOne
+    //@ManyToOne
     private int reportsTo;
     private String jobTitle;
+
+    public Employee() {
+    }
+
+    public Employee(int employeeNumber,String lastName, String firstName, String extension, String email, String officeCode, int reportsTo, String jobTitle) {
+        this.employeeNumber = employeeNumber;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.extension = extension;
+        this.email = email;
+        this.officeCode = officeCode;
+        this.reportsTo = reportsTo;
+        this.jobTitle = jobTitle;
+    }
 
     public int getEmployeeNumber() {
         return employeeNumber;
@@ -82,14 +97,4 @@ public class Employee {
         this.jobTitle = jobTitle;
     }
 
-    public Employee(int employeeNumber, String lastName, String firstName, String extension, String email, String officeCode, int reportsTo, String jobTitle) {
-        this.employeeNumber = employeeNumber;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.extension = extension;
-        this.email = email;
-        this.officeCode = officeCode;
-        this.reportsTo = reportsTo;
-        this.jobTitle = jobTitle;
-    }
 }

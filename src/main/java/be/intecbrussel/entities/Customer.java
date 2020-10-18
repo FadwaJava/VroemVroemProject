@@ -19,7 +19,7 @@ public class Customer {
     private String state;
     private String postalCode;
     private String country;
-    @ManyToOne
+    //@ManyToOne
     private int salesRepEmployeeNumber;
     private double creditLimit;
 

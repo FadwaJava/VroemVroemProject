@@ -12,9 +12,12 @@ public class EmployeeDaoJpaImpl implements EmployeeDao{
     EntityManager entityManager = EntityManagerFactoryProvider.getInstance().getEmf().createEntityManager();
 
     @Override
-    public void addNewEmployee(String lastName, String firstName, String jobTitle) {
-
-
+    public void addNewEmployee(int employeeNumber, String lastName, String firstName, String extension, String email, String officeCode,int reportsTo, String jobTitle) {
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        Employee employee = new Employee(employeeNumber, lastName, firstName, extension, email,officeCode, reportsTo, jobTitle);
+        entityManager.persist(employee);
+        transaction.commit();
     }
 
     @Override
@@ -24,7 +27,7 @@ public class EmployeeDaoJpaImpl implements EmployeeDao{
         Employee employee = entityManager.find(Employee.class, employeeNumber);
         entityManager.remove(employee);
         transaction.commit();
-        
+
     }
 
     @Override
