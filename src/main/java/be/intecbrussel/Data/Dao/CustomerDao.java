@@ -1,4 +1,4 @@
-package be.intecbrussel.Data;
+package be.intecbrussel.Data.Dao;
 
 import be.intecbrussel.entities.Employee;
 

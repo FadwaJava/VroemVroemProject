@@ -1,5 +1,6 @@
 package be.intecbrussel.Data;
 
+import be.intecbrussel.Data.Dao.EmployeeDao;
 import be.intecbrussel.Data.Util.EntityManagerFactoryProvider;
 import be.intecbrussel.entities.Employee;
 
@@ -7,15 +8,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 
-public class EmployeeDaoJpaImpl implements EmployeeDao{
+public class EmployeeDaoJpaImpl implements EmployeeDao {
 
     EntityManager entityManager = EntityManagerFactoryProvider.getInstance().getEmf().createEntityManager();
 
     @Override
-    public void addNewEmployee(int employeeNumber, String lastName, String firstName, String extension, String email, String officeCode,int reportsTo, String jobTitle) {
+    public void addNewEmployee(Employee employee) {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
-        Employee employee = new Employee(employeeNumber, lastName, firstName, extension, email,officeCode, reportsTo, jobTitle);
         entityManager.persist(employee);
         transaction.commit();
     }
@@ -48,7 +48,7 @@ public class EmployeeDaoJpaImpl implements EmployeeDao{
 
     @Override
     public Employee readEmployee(int employeeNumber) {
-    Employee employee = entityManager.find(Employee.class,employeeNumber);
+    Employee employee = entityManager.find(Employee.class, employeeNumber);
     return employee;
     }
 }

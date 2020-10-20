@@ -13,16 +13,18 @@ public class Employee {
     private String firstName;
     private String extension;
     private String email;
-    //@ManyToOne
-    private String officeCode;
-    //@ManyToOne
-    private int reportsTo;
+    @ManyToOne
+    @JoinColumn(name = "officeCode")
+    private Office officeCode;
+    @ManyToOne
+    @JoinColumn (name = "reportsTo")
+    private Employee reportsTo;
     private String jobTitle;
 
     public Employee() {
     }
 
-    public Employee(int employeeNumber,String lastName, String firstName, String extension, String email, String officeCode, int reportsTo, String jobTitle) {
+    public Employee(int employeeNumber,String lastName, String firstName, String extension, String email, Office officeCode, Employee reportsTo, String jobTitle) {
         this.employeeNumber = employeeNumber;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -73,19 +75,19 @@ public class Employee {
         this.email = email;
     }
 
-    public String getOfficeCode() {
+    public Office getOfficeCode() {
         return officeCode;
     }
 
-    public void setOfficeCode(String officeCode) {
+    public void setOfficeCode(Office officeCode) {
         this.officeCode = officeCode;
     }
 
-    public int getReportsTo() {
+    public Employee getReportsTo() {
         return reportsTo;
     }
 
-    public void setReportsTo(int reportsTo) {
+    public void setReportsTo(Employee reportsTo) {
         this.reportsTo = reportsTo;
     }
 
@@ -97,4 +99,17 @@ public class Employee {
         this.jobTitle = jobTitle;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeNumber=" + employeeNumber +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", extension='" + extension + '\'' +
+                ", email='" + email + '\'' +
+                ", officeCode=" + officeCode +
+                ", reportsTo=" + reportsTo +
+                ", jobTitle='" + jobTitle + '\'' +
+                '}';
+    }
 }

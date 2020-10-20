@@ -19,8 +19,10 @@ public class Customer {
     private String state;
     private String postalCode;
     private String country;
-    //@ManyToOne
-    private int salesRepEmployeeNumber;
+
+    @ManyToOne
+    @JoinColumn(name = "salesRepEmployeeNumber")
+    private Employee salesRepEmployeeNumber;
     private double creditLimit;
 
     public Customer() {
@@ -35,7 +37,7 @@ public class Customer {
         this.creditLimit = creditLimit;
     }
 
-    public Customer(int customerNumber, String customerName, String contactLastName, String contactFirstName, String phone, String addressLine1, String addressLine2, String city, String state, String postalCode, String country, int salesRepEmployeeNumber, double creditLimit) {
+    public Customer(int customerNumber, String customerName, String contactLastName, String contactFirstName, String phone, String addressLine1, String addressLine2, String city, String state, String postalCode, String country, Employee salesRepEmployeeNumber, double creditLimit) {
         this.customerNumber = customerNumber;
         this.customerName = customerName;
         this.contactLastName = contactLastName;
@@ -139,11 +141,11 @@ public class Customer {
         this.country = country;
     }
 
-    public int getSalesRepEmployeeNumber() {
+    public Employee getSalesRepEmployeeNumber() {
         return salesRepEmployeeNumber;
     }
 
-    public void setSalesRepEmployeeNumber(int salesRepEmployeeNumber) {
+    public void setSalesRepEmployeeNumber(Employee salesRepEmployeeNumber) {
         this.salesRepEmployeeNumber = salesRepEmployeeNumber;
     }
 
