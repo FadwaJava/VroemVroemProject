@@ -72,4 +72,15 @@ public class OrderDetail {
     public void setOrderLineNumber(int orderLineNumber) {
         this.orderLineNumber = orderLineNumber;
     }
+
+    @Override
+    public String toString() {
+        return "OrderDetail{" +
+                "orderNumber=\n" + orderNumber +
+                ", productCode=\n" + productCode +
+                ", quantityOrdered=\n" + quantityOrdered +
+                ", priceEach=\n" + priceEach +
+                ", orderLineNumber=\n" + orderLineNumber +
+                '}';
+    }
 }

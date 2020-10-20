@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table (name = "Orders")
+@Table (name = "orders")
 public class Order {
 
-
+    @Id
     private int orderNumber;
     private Date orderDate;
     private Date requiredDate;
@@ -88,5 +88,18 @@ public class Order {
 
     public void setCustomerNumber(Customer customerNumber) {
         this.customerNumber = customerNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderNumber=" + orderNumber +
+                ", orderDate=" + orderDate +
+                ", requiredDate=" + requiredDate +
+                ", shippedDate=" + shippedDate +
+                ", status='" + status + '\'' +
+                ", comments='" + comments + '\'' +
+                ", customerNumber=" + customerNumber +
+                '}';
     }
 }

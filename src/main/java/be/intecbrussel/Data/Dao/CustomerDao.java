@@ -1,13 +1,14 @@
 package be.intecbrussel.Data.Dao;
 
+import be.intecbrussel.entities.Customer;
 import be.intecbrussel.entities.Employee;
 
 public interface CustomerDao {
 
-    void addNewCostumer (String customerName,String contactLastName, String contactFirstName, String phone, String city, double creditLimit);
+    void addNewCostumer (Customer customer);
     void deleteCustomer (int customerNumber);
-    void updateCustomer (Employee employee);
-    void readCustomer (int customerNumber);
+    void updateCustomer (Customer customer);
+    Customer readCustomer (int customerNumber);
 
 
 }

@@ -1,6 +1,7 @@
 package be.intecbrussel.entities;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
 @Entity
 @Table (name = "productLines")
@@ -56,5 +57,15 @@ public class ProductLine {
 
     public void setImage(Byte[] image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductLine{" +
+                "productLine='" + productLine + '\'' +
+                ", textDescription='" + textDescription + '\'' +
+                ", htmlDescription='" + htmlDescription + '\'' +
+                ", image=" + Arrays.toString(image) +
+                '}';
     }
 }

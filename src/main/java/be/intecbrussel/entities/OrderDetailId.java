@@ -4,7 +4,7 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Embeddable
+
 public class OrderDetailId implements Serializable {
 
     private Product productCode;
